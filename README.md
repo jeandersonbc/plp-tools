@@ -17,7 +17,7 @@ Para mais informações, [acesse o nosso Wiki](https://github.com/jeandersonbc/p
 
 ## Links Úteis
 * [Wiki do Projeto](https://github.com/jeandersonbc/plp-tools/wiki)
-* [Página da Disciplina](www.cin.ufpe.br/~in1007/)
+* [Página da Disciplina](https://www.cin.ufpe.br/~in1007/)
 * [Apresentação da proposta](https://docs.google.com/presentation/d/1f6FUoRKgGALDMZD-m_4pwnR1s7V-rAPVcKdq6WF303c/edit#slide=id.p3)
  
 
