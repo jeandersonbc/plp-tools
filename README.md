@@ -1,6 +1,6 @@
 # plp-tools
 
-[pt-br]
+(Content in Brazilian Portuguese pt_br)
 
 ## Sobre este repositório
 
@@ -13,10 +13,16 @@ Pretendemos portar duas linguagens vistas na disciplina
 disponibilizar um ambiente online para a utilização das
 linguagens similar a ambientes como [IDEOne](http://ideone.com/).
 
-Para mais informações, [acesse o nosso Wiki]().
+Para mais informações, [acesse o nosso Wiki](https://github.com/jeandersonbc/plp-tools/wiki).
+
+## Links Úteis
+* [Wiki do Projeto](https://github.com/jeandersonbc/plp-tools/wiki)
+* [Página da Disciplina](www.cin.ufpe.br/~in1007/)
+* [Apresentação da proposta](https://docs.google.com/presentation/d/1f6FUoRKgGALDMZD-m_4pwnR1s7V-rAPVcKdq6WF303c/edit#slide=id.p3)
+ 
 
 ## Colaboradores
 
-* Jeanderson Candido (jbc5)
-* Leuson Mario (lmps2)
-* Caio Cesar (ccbll)
+* Caio César (ccbll@cin.ufpe.br)
+* Jeanderson Barros (jbc5@cin.ufpe.br)
+* Léuson Mário (lmps2@cin.ufpe.br)
