@@ -26,3 +26,6 @@ Para mais informações, [acesse o nosso Wiki](https://github.com/jeandersonbc/p
 * Caio César (ccbll@cin.ufpe.br)
 * Jeanderson Barros (jbc5@cin.ufpe.br)
 * Léuson Mário (lmps2@cin.ufpe.br)
+
+Facilitamos o gerenciamento e comunicação do projeto com o uso do [Slack](https://slack.com)
+* Nosso canal (apenas para membros): https://plptools.slack.com
