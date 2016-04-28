@@ -29,3 +29,13 @@ Para mais informações, [acesse o nosso Wiki](https://github.com/jeandersonbc/p
 
 Facilitamos o gerenciamento e comunicação do projeto com o uso do [Slack](https://slack.com)
 * Nosso canal (apenas para membros): https://plptools.slack.com
+
+## Setup sugerido de desenvolvimento
+* [Eclipse Mars for RCP and RAP Developers](http://www.eclipse.org/downloads/packages/eclipse-rcp-and-rap-developers/mars2)
+  * Version: Mars.2 Release (4.5.2)
+  * Build id: 20160218-0600 
+* Xtext SDK
+  * Instalado via Eclipse Marketplace (`Help > Eclipse Marketplace...`)
+  * Version: 2.9.2.v201603040440
+  * Build id: R201603040440
+
