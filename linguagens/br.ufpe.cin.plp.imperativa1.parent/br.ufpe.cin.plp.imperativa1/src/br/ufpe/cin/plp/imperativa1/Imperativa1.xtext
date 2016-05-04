@@ -3,7 +3,122 @@ grammar br.ufpe.cin.plp.imperativa1.Imperativa1 with org.eclipse.xtext.common.Te
 generate imperativa1 "http://www.ufpe.br/cin/plp/imperativa1/Imperativa1"
 
 Model:
-	greetings+=Greeting*;
-	
-Greeting:
-	'Hello' name=ID '!';
+	(comandos+=Comando)*;
+
+Comando:
+	(=> SequenciaComando | ComandoSimples);
+
+SequenciaComando:
+	ComandoSimples ';' Comando;
+
+IO:
+	Read
+	| Write;
+
+Read:
+	'read' '(' ID ')';
+
+Write:
+	'write' '(' Expressao ')';
+
+IfThenElse:
+	'if' Expressao 'then' Comando 'else' Comando;
+
+While:
+	'while' Expressao 'do' Comando;
+
+Skip:
+	'skip';
+
+Atribuicao:
+	PId ':=' Expressao;
+
+PId:
+	VALORSTRING;
+
+Valor:
+	VALORINTEIRO
+	| VALORBOOLEANO
+	| VALORSTRING;
+
+ExpMenos:
+	'-' Expressao;
+
+ExpNot:
+	'not' Expressao;
+
+ExpLenght:
+	'length' Expressao;
+
+ExpPrimaria:
+	PId
+	| Valor
+	| '(' Expressao ')';
+
+ExpUnaria:
+	ExpMenos
+	| ExpNot
+	| ExpLenght;
+
+ExpBinaria:
+	=> ExpConcat
+	| ExpSub
+	| ExpAnd
+	| ExpOr
+	| ExpEquals
+	| ExpPrimaria;
+
+ExpSoma:
+	ExpPrimaria '+' Expressao;
+
+ExpSub:
+	ExpPrimaria '-' Expressao;
+
+ExpAnd:
+	ExpPrimaria 'and' Expressao;
+
+ExpOr:
+	ExpPrimaria 'or' Expressao;
+
+ExpEquals:
+	ExpPrimaria '==' Expressao;
+
+ExpConcat:
+	ExpPrimaria '++' Expressao;
+
+Expressao:
+	ExpUnaria
+	| ExpBinaria;
+
+ComandoSimples:
+	Skip
+	| Atribuicao
+	| ComandoDeclaracao
+	| While
+	| IfThenElse
+	| IO
+	| '(' Comando ')';
+
+ComandoDeclaracao:
+	'{' Declaracao ';' Comando '}';
+
+Declaracao:
+	=> DeclaracaoComposta
+	| DeclaracaoVariavel
+	| '(' Declaracao ')';
+
+DeclaracaoComposta:
+	DeclaracaoVariavel ',' Declaracao;
+
+DeclaracaoVariavel:
+	'var' PId '=' Expressao;
+
+terminal VALORINTEIRO:
+	('1'..'9') ('0'..'9')*;
+
+terminal VALORBOOLEANO:
+	"true"
+	| "false";
+
+terminal VALORSTRING:
+	('a'..'z')+;
