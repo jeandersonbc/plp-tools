@@ -1,0 +1,9 @@
+grammar br.ufpe.cin.plp.funcional1.Funcional1 with org.eclipse.xtext.common.Terminals
+
+generate funcional1 "http://www.ufpe.br/cin/plp/funcional1/Funcional1"
+
+Model:
+	greetings+=Greeting*;
+	
+Greeting:
+	'Hello' name=ID '!';
