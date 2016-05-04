@@ -1,0 +1,9 @@
+grammar br.ufpe.cin.plp.imperativa1.Imperativa1 with org.eclipse.xtext.common.Terminals
+
+generate imperativa1 "http://www.ufpe.br/cin/plp/imperativa1/Imperativa1"
+
+Model:
+	greetings+=Greeting*;
+	
+Greeting:
+	'Hello' name=ID '!';
