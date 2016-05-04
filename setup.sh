@@ -27,19 +27,3 @@ for lang in `ls $LANGUAGES_HOME`; do
         create_gen_dirs "$project_root/$proj_prefix.$suffix" to_create[@]
     done
 done
-
-# Project 'br.ufpe.cin.plp.funcional1.ide' is missing required source folder: 'xtend-gen'	br.ufpe.cin.plp.funcional1.ide		Build path	Build Path Problem
-# Project 'br.ufpe.cin.plp.funcional1.ui.tests' is missing required source folder: 'xtend-gen'	br.ufpe.cin.plp.funcional1.ui.tests		Build path	Build Path Problem
-# Project 'br.ufpe.cin.plp.funcional1.ui' is missing required source folder: 'xtend-gen'	br.ufpe.cin.plp.funcional1.ui		Build path	Build Path Problem
-
-# Project 'br.ufpe.cin.plp.funcional1' is missing required source folder: 'xtend-gen'	br.ufpe.cin.plp.funcional1		Build path	Build Path Problem
-
-# Project 'br.ufpe.cin.plp.funcional1.ide' is missing required source folder: 'src-gen'	br.ufpe.cin.plp.funcional1.ide		Build path	Build Path Problem
-# Project 'br.ufpe.cin.plp.funcional1.ui.tests' is missing required source folder: 'src-gen'	br.ufpe.cin.plp.funcional1.ui.tests		Build path	Build Path Problem
-# Project 'br.ufpe.cin.plp.funcional1.ui' is missing required source folder: 'src-gen'	br.ufpe.cin.plp.funcional1.ui		Build path	Build Path Problem
-
-# Project 'br.ufpe.cin.plp.funcional1' is missing required source folder: 'src-gen'	br.ufpe.cin.plp.funcional1		Build path	Build Path Problem
-
-# Project 'br.ufpe.cin.plp.funcional1.ide' is missing required source folder: 'src'	br.ufpe.cin.plp.funcional1.ide		Build path	Build Path Problem
-# Project 'br.ufpe.cin.plp.funcional1.ui.tests' is missing required source folder: 'src'	br.ufpe.cin.plp.funcional1.ui.tests		Build path	Build Path Problem
-# Project 'br.ufpe.cin.plp.funcional1.ui' is missing required source folder: 'src'	br.ufpe.cin.plp.funcional1.ui		Build path	Build Path Problem
