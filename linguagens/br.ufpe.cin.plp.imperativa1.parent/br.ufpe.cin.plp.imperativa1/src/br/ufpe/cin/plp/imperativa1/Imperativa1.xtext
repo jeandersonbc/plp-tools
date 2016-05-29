@@ -3,122 +3,156 @@ grammar br.ufpe.cin.plp.imperativa1.Imperativa1 with org.eclipse.xtext.common.Te
 generate imperativa1 "http://www.ufpe.br/cin/plp/imperativa1/Imperativa1"
 
 Model:
-	(comandos+=Comando)*;
+	comandos+=Comando*;
 
 Comando:
-	(=> SequenciaComando | ComandoSimples);
+	( => sequenciaComando=SequenciaComando | comandoSimples=ComandoSimples)
+;
 
 SequenciaComando:
-	ComandoSimples ';' Comando;
+	comandoSimples=ComandoSimples ';' comando=Comando
+;
 
 IO:
-	Read
-	| Write;
+	read=Read
+	| write=Write
+;
 
 Read:
-	'read' '(' ID ')';
+	'read' '(' pid=PId ')'
+;
 
 Write:
-	'write' '(' Expressao ')';
+	'write' '(' expressao=Expressao ')'
+;
 
 IfThenElse:
-	'if' Expressao 'then' Comando 'else' Comando;
+	'if' expressao=Expressao 'then' comando=Comando 'else' comando=Comando
+;
 
 While:
-	'while' Expressao 'do' Comando;
+	'while' expressao=Expressao 'do' comando=Comando
+;
 
 Skip:
-	'skip';
+	skip='skip'
+;
 
 Atribuicao:
-	PId ':=' Expressao;
+	pid=PId ':=' expressao=Expressao
+;
 
 PId:
-	VALORSTRING;
+	VALORSTRING(VALORSTRING | VALORINTEIRO)*
+;
 
 Valor:
-	VALORINTEIRO
-	| VALORBOOLEANO
-	| VALORSTRING;
+	intType=VALORINTEIRO
+	| stringType=VALORSTRING
+	| boolType=VALORBOOLEANO
+
+;
 
 ExpMenos:
-	'-' Expressao;
+	'-' menosExpressao=Expressao	
+;
 
 ExpNot:
-	'not' Expressao;
+	'not' notExpressao=Expressao
+;
 
 ExpLenght:
-	'length' Expressao;
+	'length' lengthExpressao=Expressao
+;
 
 ExpPrimaria:
-	PId
-	| Valor
-	| '(' Expressao ')';
+	pid=PId
+	| valor=Valor
+	| '(' expressao=Expressao ')'
+;
 
 ExpUnaria:
-	ExpMenos
-	| ExpNot
-	| ExpLenght;
+	menosExpressao=ExpMenos
+	| notExpressao=ExpNot
+	| lengthExpressao=ExpLenght
+;
 
 ExpBinaria:
-	=> ExpConcat
-	| ExpSub
-	| ExpAnd
-	| ExpOr
-	| ExpEquals
-	| ExpPrimaria;
+	 somaExpressao=ExpSoma
+	 | subExpressao=ExpSub
+	 | orExpressao=ExpOr
+	 | andExpressao=ExpAnd
+	 | equalsExpressao=ExpEquals
+	 | concatExpressao=ExpConcat
+;
 
 ExpSoma:
-	ExpPrimaria '+' Expressao;
+	valor=Valor '+' expressao=Expressao
+;
 
 ExpSub:
-	ExpPrimaria '-' Expressao;
+	valor=Valor '-' expressao=Expressao
+;
 
 ExpAnd:
-	ExpPrimaria 'and' Expressao;
+	valor=Valor 'and' expressao=Expressao
+;
 
 ExpOr:
-	ExpPrimaria 'or' Expressao;
+	valor=Valor 'or' expressao=Expressao
+;
 
 ExpEquals:
-	ExpPrimaria '==' Expressao;
+	valor=Valor '==' expressao=Expressao
+;
 
 ExpConcat:
-	ExpPrimaria '++' Expressao;
+	valor=Valor '++' expressao=Expressao
+;
 
 Expressao:
-	ExpUnaria
-	| ExpBinaria;
+	=> expUnaria=ExpUnaria
+	| expPrimaria=ExpPrimaria
+	| expBinaria=ExpBinaria
+;
 
 ComandoSimples:
-	Skip
-	| Atribuicao
-	| ComandoDeclaracao
-	| While
-	| IfThenElse
-	| IO
-	| '(' Comando ')';
+	skip=Skip
+	| atribuicao=Atribuicao
+	| comandoDeclaracao=ComandoDeclaracao
+	| while=While
+	| ifThenElse=IfThenElse
+	| io=IO
+	| '(' comando=Comando ')'
+;
 
 ComandoDeclaracao:
-	'{' Declaracao ';' Comando '}';
+	'{' declaracao=Declaracao ';' comando=Comando '}'	
+;
 
 Declaracao:
-	=> DeclaracaoComposta
-	| DeclaracaoVariavel
-	| '(' Declaracao ')';
+	=> decComposta=DeclaracaoComposta
+	| decVariavel=DeclaracaoVariavel
+	| '(' declaracao=Declaracao ')'
+;
 
 DeclaracaoComposta:
-	DeclaracaoVariavel ',' Declaracao;
+	decVariavel=DeclaracaoVariavel ',' declaracao=Declaracao
+;
 
 DeclaracaoVariavel:
-	'var' PId '=' Expressao;
+	'var' pid=PId '=' expressao=Expressao
+;
 
 terminal VALORINTEIRO:
-	('1'..'9') ('0'..'9')*;
+	('1'..'9')('0'..'9')*
+;
 
 terminal VALORBOOLEANO:
-	"true"
-	| "false";
+	'true'
+	| 'false'
+;
 
 terminal VALORSTRING:
-	('a'..'z')+;
+	('a'..'z')+
+;
