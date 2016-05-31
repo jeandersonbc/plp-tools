@@ -8,10 +8,16 @@
       <link href="bower_modules/components-bootstrap/css/bootstrap.min.css" rel="stylesheet">
       <link href="css/styles.css" rel="stylesheet">
     <!-- endbuild -->
+    <link rel="stylesheet" type="text/css" href="http://eclipse.org/orion/editor/releases/4.0/built-editor.css"/>
     <!-- build:js -->
       <script src="app/require.config.js"></script>
       <script data-main="app/startup" src="bower_modules/requirejs/require.js"></script>
     <!-- endbuild -->
+    <script>
+    	require(["http://eclipse.org/orion/editor/releases/4.0/built-editor-amd.min.js"], function(edit) {
+    		edit({className: "editor"});
+    	});
+    </script>
   </head>
   <body>
     <nav-bar params="route: route"></nav-bar>
