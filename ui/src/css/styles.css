@@ -13,3 +13,10 @@
 #stdout, .editor {
 	height: 300px;
 }
+
+#stdin input {
+	width: 100%;
+	border: 0px;
+	padding: 5px;
+	display: block;
+}

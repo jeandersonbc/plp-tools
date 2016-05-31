@@ -43,7 +43,9 @@
   <div class="col-md-6">
     <h3>Editor</h3>
     <pre class="editor">// Seu código aqui...</pre>
-    <pre id="stdin">Entrada padrão</pre>
+    <div class="well well-sm" id="stdin">
+      <input data-bind="value: stdinContent" type="text" placeholder="Entrada padrão" id="stdin-input">
+    </div>
     <div class="editor-controls">
       <button data-bind="click: execute" type="button" class="btn btn-success">Executar <span class="glyphicon glyphicon-cog"></span></button>
       <button data-bind="click: clear" type="button" class="btn btn-primary">Limpar <span class="glyphicon glyphicon-trash"></span></button>
@@ -52,7 +54,7 @@
   </div>
   <div class="col-md-6">
     <h3>Saída Padrão</h3>
-    <pre id="stdout"></pre>
+    <div class="well well-sm" id="stdout"></div>
   </div>
 </div>
 <script>
