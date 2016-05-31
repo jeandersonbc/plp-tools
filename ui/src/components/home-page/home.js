@@ -3,11 +3,16 @@ import homeTemplate from 'text!./home.html';
 
 class HomeViewModel {
     constructor(route) {
-        this.message = ko.observable('Welcome to plp!');
+        this.selectedLanguage = ko.observable();
     }
-    
-    doSomething() {
-        this.message('You invoked doSomething() on the viewmodel.');
+    updateEditor(data, event) {
+        // TODO: update to dynamically loading syntax highlight
+    }
+    clear() {
+        console.log("Clearing fields");
+    }
+    execute() {
+        console.log(this.selectedLanguage());
     }
 }
 
