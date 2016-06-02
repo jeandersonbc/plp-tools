@@ -21,8 +21,8 @@ public class LanguagesService {
 		try {
 			result = interpreter.run(source, input);
 		} catch (GenericParseException e) {
-			// TODO handle exception properly...
-			e.printStackTrace();
+			// TODO: Fazer um melhor tratamento de erros
+			result = "Ocorreu um erro de Parser.";
 		}
 		compilerOutput.setOutput(result);
 		return compilerOutput;
