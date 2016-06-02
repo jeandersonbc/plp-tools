@@ -8,7 +8,7 @@
 BASEDIR="`pwd`"
 SERVER_HOME="$BASEDIR/br.ufpe.cin.plp.web.server"
 SERVER_UI_HOME="$SERVER_HOME/src/main/webapp"
-UI_HOME="$BASEDIR/ui"
+UI_HOME="$BASEDIR/br.ufpe.cin.plp.web.ui"
 BUILD_DIR="dist"
 
 check_ui_dependencies() {
@@ -40,4 +40,4 @@ gulp
 echo "Copiando arquivos para o servidor..."
 rm -rf "$SERVER_UI_HOME" && mkdir -p "$SERVER_UI_HOME"
 mv "$BUILD_DIR"/* "$SERVER_UI_HOME"
-echo "Fim."
+echo "Fim." && cd "$BASEDIR"
