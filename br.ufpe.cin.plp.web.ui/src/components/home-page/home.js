@@ -15,11 +15,24 @@ class HomeViewModel {
     }
     clear() {
         this.stdinContent("");
+        $("#stdout-list").children().remove();
+        // TODO clear editor content
     }
     execute() {
-        console.log("execute()")
-        console.log(this.selectedLanguage());
-        console.log(this.stdinContent());
+        var content = "1+2"; //textarea text
+        $.ajax({
+            type: "GET",
+            url: "/compile",
+            dataType: 'JSON',
+            data: {
+                language: this.selectedLanguage(),
+                input: this.stdinContent(),
+                source: content
+            }
+        }).done(function(data) {
+            // Update console
+            $("#stdout-list").append("<li>" + data.output + "</li>");
+        });
     }
 }
 

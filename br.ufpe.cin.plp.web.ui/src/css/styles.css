@@ -12,6 +12,23 @@
 	height: 300px;
 }
 
+#stdout {
+	background-color: black;
+	color: #adff2f;
+	overflow: auto;
+	font-family: monospace;
+}
+
+#stdout ul {
+	list-style: none;
+	padding: 0px;
+}
+
+#stdout ul li:before {
+	content: '> ';
+	font-weight: bold;
+}
+
 #stdin input {
 	width: 100%;
 	border: 0px;
