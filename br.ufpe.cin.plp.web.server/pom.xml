@@ -14,7 +14,7 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>1.3.5.RELEASE</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 
 	<properties>
@@ -27,14 +27,63 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-ws</artifactId>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+		<!-- Linguagens da disciplina -->
+		<dependency>
+			<groupId>Expressoes1</groupId>
+			<artifactId>Expressoes1</artifactId>
+			<version>0.0.1</version>
+		</dependency>
+		<dependency>
+			<groupId>Expressoes2</groupId>
+			<artifactId>Expressoes2</artifactId>
+			<version>0.0.1</version>
+		</dependency>
+		<dependency>
+			<groupId>Funcional1</groupId>
+			<artifactId>Funcional1</artifactId>
+			<version>0.0.1</version>
+		</dependency>
+		<dependency>
+			<groupId>Funcional2</groupId>
+			<artifactId>Funcional2</artifactId>
+			<version>0.0.1</version>
+		</dependency>
+		<dependency>
+			<groupId>Funcional3</groupId>
+			<artifactId>Funcional3</artifactId>
+			<version>0.0.1</version>
+		</dependency>
+		<dependency>
+			<groupId>Imperativa1</groupId>
+			<artifactId>Imperativa1</artifactId>
+			<version>0.0.1</version>
+		</dependency>
+		<dependency>
+			<groupId>Imperativa2</groupId>
+			<artifactId>Imperativa2</artifactId>
+			<version>0.0.1</version>
+		</dependency>
+		<dependency>
+			<groupId>Objetos1</groupId>
+			<artifactId>Objetos1</artifactId>
+			<version>0.0.1</version>
+		</dependency>
+		<dependency>
+			<groupId>Objetos2</groupId>
+			<artifactId>Objetos2</artifactId>
+			<version>0.0.1</version>
+		</dependency>
+		<!-- Fim das dependencias das linguagens da disciplina -->
+
 	</dependencies>
-	
+
 	<build>
 		<plugins>
 			<plugin>
@@ -43,6 +92,6 @@
 			</plugin>
 		</plugins>
 	</build>
-	
+
 
 </project>
