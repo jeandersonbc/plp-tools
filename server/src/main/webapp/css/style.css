@@ -1,0 +1,49 @@
+#page {
+	margin-top: 80px;
+	margin-bottom: 20px;
+}
+
+.page-header {
+	padding-top: 0px;
+	margin-top: 0px;
+}
+
+#stdout, .editor {
+	height: 300px;
+}
+
+#stdout {
+	background-color: black;
+	color: #adff2f;
+	overflow: auto;
+	font-family: monospace;
+}
+
+#stdout ul {
+	list-style: none;
+	padding: 0px;
+}
+
+#stdout ul li:before {
+	content: '> ';
+	font-weight: bold;
+}
+
+#stdin input {
+	width: 100%;
+	border: 0px;
+	padding: 5px;
+	display: block;
+}
+
+.demo-content {
+	padding: 15px;
+	font-size: 18px;
+	min-height: 300px;
+	background: #dbdfe5;
+	margin-bottom: 10px;
+}
+
+.demo-content.bg-alt {
+	background: #abb1b8;
+}
