@@ -362,16 +362,53 @@ CodeMirror.defineMode("clike", function(config, parserConfig) {
     for (var i = 0; i < mimes.length; ++i)
       CodeMirror.defineMIME(mimes[i], mode);
   }
-
+  
+  def("text/exp1", {
+	    name: "clike",
+	    keywords: words(""),
+	    types: words(""),
+	    blockKeywords: words(""),
+	    defKeywords: words(""),
+	    typeFirstDefinitions: true,
+	    atoms: words(""),
+	    endStatement: /^[;:]$/,
+	    number: /^(?:0x[a-f\d_]+|0b[01_]+|(?:[\d_]+\.?\d*|\.\d+)(?:e[-+]?[\d_]+)?)(u|ll?|l|f)?/i,
+	    hooks: {
+	      "@": function(stream) {
+	        stream.eatWhile(/[\w\$_]/);
+	        return "meta";
+	      }
+	    },
+	    modeProps: {fold: ["brace", "import"]}
+	  });
+  
+  def("text/exp2", {
+	    name: "clike",
+	    keywords: words(""),
+	    types: words(""),
+	    blockKeywords: words(""),
+	    defKeywords: words(""),
+	    typeFirstDefinitions: true,
+	    atoms: words(""),
+	    endStatement: /^[;:]$/,
+	    number: /^(?:0x[a-f\d_]+|0b[01_]+|(?:[\d_]+\.?\d*|\.\d+)(?:e[-+]?[\d_]+)?)(u|ll?|l|f)?/i,
+	    hooks: {
+	      "@": function(stream) {
+	        stream.eatWhile(/[\w\$_]/);
+	        return "meta";
+	      }
+	    },
+	    modeProps: {fold: ["brace", "import"]}
+	  });
   
   def("text/imp1", {
     name: "clike",
-    keywords: words("let var in and or write read"),
+    keywords: words("var and or write read not length"),
     types: words(""),
-    blockKeywords: words(" then skip do else if while"),
+    blockKeywords: words("while if then else do skip"),
     defKeywords: words(""),
     typeFirstDefinitions: true,
-    atoms: words("true false null not"),
+    atoms: words("true false null"),
     endStatement: /^[;:]$/,
     number: /^(?:0x[a-f\d_]+|0b[01_]+|(?:[\d_]+\.?\d*|\.\d+)(?:e[-+]?[\d_]+)?)(u|ll?|l|f)?/i,
     hooks: {
@@ -382,15 +419,34 @@ CodeMirror.defineMode("clike", function(config, parserConfig) {
     },
     modeProps: {fold: ["brace", "import"]}
   });
+
+  def("text/imp2", {
+	    name: "clike",
+	    keywords: words("var and or write read not length proc call"),
+	    types: words(""),
+	    blockKeywords: words("while if then else do skip"),
+	    defKeywords: words("string int boolean"),
+	    typeFirstDefinitions: true,
+	    atoms: words("true false null"),
+	    endStatement: /^[;:]$/,
+	    number: /^(?:0x[a-f\d_]+|0b[01_]+|(?:[\d_]+\.?\d*|\.\d+)(?:e[-+]?[\d_]+)?)(u|ll?|l|f)?/i,
+	    hooks: {
+	      "@": function(stream) {
+	        stream.eatWhile(/[\w\$_]/);
+	        return "meta";
+	      }
+	    },
+	    modeProps: {fold: ["brace", "import"]}
+	  });
 
   def("text/func1", {
     name: "clike",
-    keywords: words("and or length var fun let if else then in"),
+    keywords: words("let var fun in and or length not"),
     types: words(""),
-    blockKeywords: words(" do else if while"),
+    blockKeywords: words("if then else"),
     defKeywords: words(""),
     typeFirstDefinitions: true,
-    atoms: words("true false null not"),
+    atoms: words("true false null"),
     endStatement: /^[;:]$/,
     number: /^(?:0x[a-f\d_]+|0b[01_]+|(?:[\d_]+\.?\d*|\.\d+)(?:e[-+]?[\d_]+)?)(u|ll?|l|f)?/i,
     hooks: {
@@ -401,24 +457,81 @@ CodeMirror.defineMode("clike", function(config, parserConfig) {
     },
     modeProps: {fold: ["brace", "import"]}
   });
-
-  def("text/imp1func1", {
-    name: "clike",
-    keywords: words("let var if else then skip and or write read while do and or length fun let in"),
-    types: words(""),
-    blockKeywords: words(" do else if while"),
-    defKeywords: words(""),
-    typeFirstDefinitions: true,
-    atoms: words("true false null not"),
-    endStatement: /^[;:]$/,
-    number: /^(?:0x[a-f\d_]+|0b[01_]+|(?:[\d_]+\.?\d*|\.\d+)(?:e[-+]?[\d_]+)?)(u|ll?|l|f)?/i,
-    hooks: {
-      "@": function(stream) {
-        stream.eatWhile(/[\w\$_]/);
-        return "meta";
-      }
-    },
-    modeProps: {fold: ["brace", "import"]}
-  });
-
+  
+  def("text/func2", {
+	    name: "clike",
+	    keywords: words("let var fun in and or length not fn"),
+	    types: words(""),
+	    blockKeywords: words("if then else"),
+	    defKeywords: words(""),
+	    typeFirstDefinitions: true,
+	    atoms: words("true false null"),
+	    endStatement: /^[;:]$/,
+	    number: /^(?:0x[a-f\d_]+|0b[01_]+|(?:[\d_]+\.?\d*|\.\d+)(?:e[-+]?[\d_]+)?)(u|ll?|l|f)?/i,
+	    hooks: {
+	      "@": function(stream) {
+	        stream.eatWhile(/[\w\$_]/);
+	        return "meta";
+	      }
+	    },
+	    modeProps: {fold: ["brace", "import"]}
+	  });
+  
+  def("text/func3", {
+	    name: "clike",
+	    keywords: words("let var fun in and or length not fn for"),
+	    types: words(""),
+	    blockKeywords: words("if then else"),
+	    defKeywords: words(""),
+	    typeFirstDefinitions: true,
+	    atoms: words("true false null"),
+	    endStatement: /^[;:]$/,
+	    number: /^(?:0x[a-f\d_]+|0b[01_]+|(?:[\d_]+\.?\d*|\.\d+)(?:e[-+]?[\d_]+)?)(u|ll?|l|f)?/i,
+	    hooks: {
+	      "@": function(stream) {
+	        stream.eatWhile(/[\w\$_]/);
+	        return "meta";
+	      }
+	    },
+	    modeProps: {fold: ["brace", "import"]}
+	  });
+  
+  def("text/oo1", {
+	    name: "clike",
+	    keywords: words("new write read classe proc length not"),
+	    types: words(""),
+	    blockKeywords: words("while do if then else"),
+	    defKeywords: words(""),
+	    typeFirstDefinitions: true,
+	    atoms: words("true false null"),
+	    endStatement: /^[;:]$/,
+	    number: /^(?:0x[a-f\d_]+|0b[01_]+|(?:[\d_]+\.?\d*|\.\d+)(?:e[-+]?[\d_]+)?)(u|ll?|l|f)?/i,
+	    hooks: {
+	      "@": function(stream) {
+	        stream.eatWhile(/[\w\$_]/);
+	        return "meta";
+	      }
+	    },
+	    modeProps: {fold: ["brace", "import"]}
+	  });
+  
+  
+  def("text/oo2", {
+	    name: "clike",
+	    keywords: words("new write read classe proc length not"),
+	    types: words(""),
+	    blockKeywords: words("while do if then else"),
+	    defKeywords: words(""),
+	    typeFirstDefinitions: true,
+	    atoms: words("true false null"),
+	    endStatement: /^[;:]$/,
+	    number: /^(?:0x[a-f\d_]+|0b[01_]+|(?:[\d_]+\.?\d*|\.\d+)(?:e[-+]?[\d_]+)?)(u|ll?|l|f)?/i,
+	    hooks: {
+	      "@": function(stream) {
+	        stream.eatWhile(/[\w\$_]/);
+	        return "meta";
+	      }
+	    },
+	    modeProps: {fold: ["brace", "import"]}
+	  });
 });
