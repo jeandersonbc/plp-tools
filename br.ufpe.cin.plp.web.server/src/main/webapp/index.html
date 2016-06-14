@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>PLP Online</title>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/codemirror.css">
+	<link rel="stylesheet" type="text/css" href="css/show-hint.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="page-header">
+				<h1>UFPE CIn <small>Paradigmas de Linguagem de Programação</small></h1>
+			</div>
+
+			<!-- Disclaimer -->
+			<div class="alert alert-warning alert-dismissible" role="alert">
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<p><strong>Aviso!</strong> Esta página faz parte de um projeto de disciplina e portanto não é a versão
+				oficial. Acesse o <a href="http://www.cin.ufpe.br/~in1007" target="_blank">site oficial</a>
+				da disciplina para mais informações.</p>
+			</div>
+			<!-- /Disclaimer -->
+
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<label for="lang-selector">Selecione uma linguagem</label>
+			<select onchange="getLinguagem(this)" id="lang-selector">
+				<optgroup label="Linguagens de Expressões">
+					<option value="exp1">Expressões 1</option>
+					<option value="exp2">Expressões 2</option>
+				</optgroup>
+				<optgroup label="Linguagens Funcionais">
+					<option value="func1">Funcional 1</option>
+					<option value="func2">Funcional 2</option>
+					<option value="func3">Funcional 3</option>
+				</optgroup>
+				<optgroup label="Linguagens Imperativas">
+					<option value="imp1">Imperativa 1</option>
+					<option value="imp2">Imperativa 2</option>
+				</optgroup>
+				<optgroup label="Linguagens Orientadas a Objetos">
+					<option value="oo1">Orientada a Objetos 1</option>
+					<option value="oo2">Orientada a Objetos 2</option>
+				</optgroup>
+			</select>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6">
+			<h3>Editor</h3>
+			<div class="editor-container">
+				<textarea id="code" name="code"></textarea>
+			</div>
+
+			<div class="editor-controls">
+				<div id="stdin" style="display: none;">
+					<input type="text" placeholder="Entrada padrão" id="stdin-input">
+				</div>
+				<button onclick="execute()" type="button" class="btn btn-success">
+					Executar <span class="glyphicon glyphicon-cog"></span>
+				</button>
+				<button onclick="showStdin()" type="button" class="btn btn-primary">
+					Entrada Padrão <span class="glyphicon glyphicon-inbox"></span>
+				</button>
+				<button onclick="limpar()" type="button" class="btn btn-primary">
+					Limpar <span class="glyphicon glyphicon-trash"></span>
+				</button>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<h3>Console</h3>
+			<div class="well well-sm" id="stdout">
+				<ul id="stdout-list"></ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Import JavaScriptFiles -->
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/codemirror/codemirror.js"></script>
+<script type="text/javascript" src="js/codemirror/anyword-hint.js"></script>
+<script type="text/javascript" src="js/codemirror/show-hint.js"></script>
+<script type="text/javascript" src="js/home.js"></script>
+<script type="text/javascript" src="js/codemirror/plp-language.js"></script>
+<script>
+	var editor = CodeMirror.fromTextArea(document
+			.getElementById("code"), {
+		lineNumbers: true,
+        matchBrackets: true,
+        mode: "text/exp1",
+        extraKeys: {"Ctrl-Space": "autocomplete"}
+	});
+</script>
+
+</body>
+</html>

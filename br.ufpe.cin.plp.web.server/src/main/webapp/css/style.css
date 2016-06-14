@@ -1,11 +1,14 @@
-#page {
-	margin-top: 80px;
-	margin-bottom: 20px;
-}
-
 .page-header {
 	padding-top: 0px;
 	margin-top: 0px;
+}
+
+.editor-container {
+	border: 1px solid #ddd;
+}
+
+.editor-controls {
+	margin-top: 20px;
 }
 
 #stdout, .editor {
@@ -17,6 +20,7 @@
 	color: #adff2f;
 	overflow: auto;
 	font-family: monospace;
+	border: 1px solid black;
 }
 
 #stdout ul {
@@ -29,9 +33,14 @@
 	font-weight: bold;
 }
 
+#stdin {
+	border: 1px solid #ddd;
+	font-family: monospace;
+	margin-bottom: 20px;
+}
 #stdin input {
 	width: 100%;
-	border: 0px;
 	padding: 5px;
 	display: block;
+	border: 0px;
 }
