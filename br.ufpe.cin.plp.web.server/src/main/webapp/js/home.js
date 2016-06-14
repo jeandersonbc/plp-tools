@@ -2,12 +2,7 @@ function execute() {
 	var lin = $("#lang-selector option:selected").val();
 	var aux = editor.getValue();
 	var padrao = $("#stdin-input").val();
-
-	var ul = document.getElementById("stdout");
-	var li = document.createElement("ul");
-	li.appendChild(document.createTextNode("> "));
-	ul.appendChild(li);
-
+	var output = $("#stdout-list")
 	$.ajax({
 		type : "GET",
 		url : "/compile",
@@ -19,8 +14,7 @@ function execute() {
 		}
 	}).done(function(data) {
 		// Update console
-		li.appendChild(document.createTextNode(data.output));
-		ul.appendChild(li);
+		output.append("<li>" + data.output + "</li>")
 	})
 }
 
@@ -30,7 +24,7 @@ function limpar() {
 	editor.setValue("");
 }
 
-function slow() {
+function showStdin() {
 	$("#stdin").toggle("slow");
 }
 
@@ -68,5 +62,4 @@ function setLanguage(language){
 	var editor = $('.CodeMirror')[0].CodeMirror;
 	editor.setOption("mode", language);
 	editor.setOption({"Ctrl-Space": "autocomplete"});
-
 }

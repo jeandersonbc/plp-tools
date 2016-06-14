@@ -1,11 +1,14 @@
-#page {
-	margin-top: 80px;
-	margin-bottom: 20px;
-}
-
 .page-header {
 	padding-top: 0px;
 	margin-top: 0px;
+}
+
+.editor-container {
+	border: 1px solid #ddd;
+}
+
+.editor-controls {
+	margin-top: 20px;
 }
 
 #stdout, .editor {
@@ -17,6 +20,7 @@
 	color: #adff2f;
 	overflow: auto;
 	font-family: monospace;
+	border: 1px solid black;
 }
 
 #stdout ul {
@@ -29,33 +33,14 @@
 	font-weight: bold;
 }
 
+#stdin {
+	border: 1px solid #ddd;
+	font-family: monospace;
+	margin-bottom: 20px;
+}
 #stdin input {
 	width: 100%;
-	border: 0px;
 	padding: 5px;
 	display: block;
-}
-
-.demo-content {
-	padding: 15px;
-	font-size: 18px;
-	min-height: 300px;
-	background: #dbdfe5;
-	margin-bottom: 10px;
-}
-
-.demo-content.bg-alt {
-	background: #abb1b8;
-}
-
-#sectionDireita {
-	width: 350px;
-	float: left;
-	padding: 10px 10px 100px 200px;
-}
-
-#sectionEsquerda {
-	width: 350px;
-	float: right;
-	padding: 10px 200px 10px 10px;
+	border: 0px;
 }
