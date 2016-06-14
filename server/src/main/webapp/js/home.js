@@ -1,9 +1,6 @@
 function execute() {
-	// pegando a linguagem selecionada
 	var lin = $("#lang-selector option:selected").val();
-	// pegando o texto do editor
 	var aux = editor.getValue();
-	// pegando o valor da entrada padrão
 	var padrao = $("#stdin-input").val();
 
 	var ul = document.getElementById("stdout");
@@ -42,7 +39,7 @@ function getLinguagem(sel) {
 		setLanguage("text/exp1");
 	}
 	if ($('#lang-selector').val() == 'exp2') {
-		setLanguage("text/imp2");
+		setLanguage("text/exp2");
 	}
 	if ($('#lang-selector').val() == 'func1') {
 		setLanguage("text/func1");

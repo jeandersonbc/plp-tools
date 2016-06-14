@@ -47,3 +47,15 @@
 .demo-content.bg-alt {
 	background: #abb1b8;
 }
+
+#sectionDireita {
+	width: 350px;
+	float: left;
+	padding: 10px 10px 100px 200px;
+}
+
+#sectionEsquerda {
+	width: 350px;
+	float: right;
+	padding: 10px 200px 10px 10px;
+}

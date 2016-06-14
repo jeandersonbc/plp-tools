@@ -384,7 +384,7 @@ CodeMirror.defineMode("clike", function(config, parserConfig) {
   
   def("text/exp2", {
 	    name: "clike",
-	    keywords: words(""),
+	    keywords: words("let var in"),
 	    types: words(""),
 	    blockKeywords: words(""),
 	    defKeywords: words(""),
@@ -422,10 +422,10 @@ CodeMirror.defineMode("clike", function(config, parserConfig) {
 
   def("text/imp2", {
 	    name: "clike",
-	    keywords: words("var and or write read not length proc call"),
+	    keywords: words("var and or write read not length proc call string int boolean while if then else do skip"),
 	    types: words(""),
-	    blockKeywords: words("while if then else do skip"),
-	    defKeywords: words("string int boolean"),
+	    blockKeywords: words(""),
+	    defKeywords: words(""),
 	    typeFirstDefinitions: true,
 	    atoms: words("true false null"),
 	    endStatement: /^[;:]$/,
@@ -441,9 +441,9 @@ CodeMirror.defineMode("clike", function(config, parserConfig) {
 
   def("text/func1", {
     name: "clike",
-    keywords: words("let var fun in and or length not"),
+    keywords: words("let var fun in and or length not if then else"),
     types: words(""),
-    blockKeywords: words("if then else"),
+    blockKeywords: words(""),
     defKeywords: words(""),
     typeFirstDefinitions: true,
     atoms: words("true false null"),
@@ -460,9 +460,9 @@ CodeMirror.defineMode("clike", function(config, parserConfig) {
   
   def("text/func2", {
 	    name: "clike",
-	    keywords: words("let var fun in and or length not fn"),
+	    keywords: words("let var fun in and or length not fn if then else"),
 	    types: words(""),
-	    blockKeywords: words("if then else"),
+	    blockKeywords: words(""),
 	    defKeywords: words(""),
 	    typeFirstDefinitions: true,
 	    atoms: words("true false null"),
@@ -479,9 +479,9 @@ CodeMirror.defineMode("clike", function(config, parserConfig) {
   
   def("text/func3", {
 	    name: "clike",
-	    keywords: words("let var fun in and or length not fn for"),
+	    keywords: words("let var fun in and or length not fn for if then else"),
 	    types: words(""),
-	    blockKeywords: words("if then else"),
+	    blockKeywords: words(""),
 	    defKeywords: words(""),
 	    typeFirstDefinitions: true,
 	    atoms: words("true false null"),
