@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 	<title>PLP Online</title>
-	<meta charset="UTF-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="css/codemirror.css">
-	<link rel="stylesheet" type="text/css" href="css/show-hint.css">
-	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<meta charset="UTF-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<link rel="stylesheet" href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}"/>
+	<link rel="stylesheet" href="../static/css/codemirror.css" th:href="@{/css/codemirror.css}"/>
+	<link rel="stylesheet" href="../static/css/show-hint.css" th:href="@{/css/show-hint.css}"/>
+	<link rel="stylesheet" href="../static/css/style.css" th:href="@{/css/style.css}"/>
 </head>
 <body>
 
@@ -64,7 +64,7 @@
 
 			<div class="editor-controls">
 				<div id="stdin" style="display: none;">
-					<input type="text" placeholder="Entrada padrão" id="stdin-input">
+					<input type="text" placeholder="Entrada padrão" id="stdin-input"/>
 				</div>
 				<button onclick="execute()" type="button" class="btn btn-success">
 					Executar <span class="glyphicon glyphicon-cog"></span>
@@ -87,13 +87,13 @@
 </div>
 
 <!-- Import JavaScriptFiles -->
-<script type="text/javascript" src="js/jquery.min.js"></script>
-<script type="text/javascript" src="js/bootstrap.min.js"></script>
-<script type="text/javascript" src="js/codemirror/codemirror.js"></script>
-<script type="text/javascript" src="js/codemirror/anyword-hint.js"></script>
-<script type="text/javascript" src="js/codemirror/show-hint.js"></script>
-<script type="text/javascript" src="js/home.js"></script>
-<script type="text/javascript" src="js/codemirror/plp-language.js"></script>
+<script src="../static/js/jquery.min.js" th:src="@{/js/jquery.min.js}"></script>
+<script src="../static/js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"></script>
+<script src="../static/js/codemirror/codemirror.js" th:src="@{/js/codemirror/codemirror.js}"></script>
+<script src="../static/js/codemirror/anyword-hint.js" th:src="@{/js/codemirror/anyword-hint.js}"></script>
+<script src="../static/js/codemirror/show-hint.js" th:src="@{/js/codemirror/show-hint.js}"></script>
+<script src="../static/js/home.js" th:src="@{/js/home.js}"></script>
+<script src="../static/js/codemirror/plp-language.js" th:src="@{/js/codemirror/plp-language.js}"></script>
 <script>
 	var editor = CodeMirror.fromTextArea(document
 			.getElementById("code"), {
