@@ -1,4 +1,4 @@
-package br.ufpe.cin.plp.web;
+package br.ufpe.cin.plp.web.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
