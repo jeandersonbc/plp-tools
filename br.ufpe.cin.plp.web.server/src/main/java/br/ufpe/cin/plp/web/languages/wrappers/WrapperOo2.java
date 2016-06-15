@@ -5,25 +5,27 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.StringTokenizer;
 
-import br.ufpe.cin.plp.web.languages.GenericParseException;
 import br.ufpe.cin.plp.web.languages.Interpreter;
-import loo2.plp.orientadaObjetos2.parser.ParseException;
-import loo2.plp.orientadaObjetos2.Programa;
-import loo2.plp.orientadaObjetos2.parser.OO2Parser;
+import loo2.plp.orientadaObjetos1.expressao.valor.ValorBooleano;
+import loo2.plp.orientadaObjetos1.expressao.valor.ValorConcreto;
+import loo2.plp.orientadaObjetos1.expressao.valor.ValorInteiro;
+import loo2.plp.orientadaObjetos1.expressao.valor.ValorString;
 import loo2.plp.orientadaObjetos1.memoria.colecao.ListaValor;
+import loo2.plp.orientadaObjetos2.Programa;
 import loo2.plp.orientadaObjetos2.memoria.ContextoCompilacaoOO2;
 import loo2.plp.orientadaObjetos2.memoria.ContextoExecucaoOO2;
-import loo2.plp.orientadaObjetos1.expressao.valor.ValorBooleano;
-import loo2.plp.orientadaObjetos1.expressao.valor.ValorString;
-import loo2.plp.orientadaObjetos1.expressao.valor.ValorInteiro;
-import loo2.plp.orientadaObjetos1.expressao.valor.ValorConcreto;
+import loo2.plp.orientadaObjetos2.parser.OO2Parser;
+import loo2.plp.orientadaObjetos2.parser.ParseException;
 
+/**
+ * Um Wrapper para a linguagem OO2.
+ */
 public class WrapperOo2 implements Interpreter {
 
 	private OO2Parser oo2Parser;
 
 	@Override
-	public String run(String source, String input) throws GenericParseException {
+	public String run(String source, String input) {
 		ByteArrayInputStream fis = new ByteArrayInputStream(source.getBytes());
 		Programa prog = null;
 		if (oo2Parser == null) {
@@ -34,7 +36,7 @@ public class WrapperOo2 implements Interpreter {
 		try {
 			prog = oo2Parser.processaEntrada();
 		} catch (ParseException e) {
-			throw new GenericParseException();
+			return e.getMessage();
 		}
 
 		ListaValor entrada = obterListaEntradaOO2(input);
@@ -43,7 +45,7 @@ public class WrapperOo2 implements Interpreter {
 				return prog.executar(new ContextoExecucaoOO2(entrada)).toString();
 			}
 		} catch (Exception e) {
-			return e.toString();
+			return e.getMessage();
 		}
 		return "Erro de tipos!";
 	}
