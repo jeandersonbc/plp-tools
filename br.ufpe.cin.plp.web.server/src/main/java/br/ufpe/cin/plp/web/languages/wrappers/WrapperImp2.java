@@ -5,7 +5,6 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.StringTokenizer;
 
-import br.ufpe.cin.plp.web.languages.GenericParseException;
 import br.ufpe.cin.plp.web.languages.Interpreter;
 import li2.plp.expressions2.expression.ValorBooleano;
 import li2.plp.expressions2.expression.ValorConcreto;
@@ -17,12 +16,15 @@ import li2.plp.imperative2.Programa;
 import li2.plp.imperative2.parser.Imp2Parser;
 import li2.plp.imperative2.parser.ParseException;
 
+/**
+ * Um Wrapper para a linguagem Imperativa2.
+ */
 public class WrapperImp2 implements Interpreter {
 
 	private Imp2Parser imp2Parser;
 
 	@Override
-	public String run(String source, String input) throws GenericParseException {
+	public String run(String source, String input) {
 		ByteArrayInputStream fis = new ByteArrayInputStream(source.getBytes());
 		Programa prog;
 		if (imp2Parser == null) {
@@ -33,7 +35,7 @@ public class WrapperImp2 implements Interpreter {
 		try {
 			prog = Imp2Parser.Input();
 		} catch (ParseException e) {
-			throw new GenericParseException();
+			return e.getMessage();
 		}
 
 		ListaValor entrada = obterListaEntradaImp2(input);
@@ -42,7 +44,7 @@ public class WrapperImp2 implements Interpreter {
 				return prog.executar(new li2.plp.imperative2.memory.ContextoExecucaoImperativa2(entrada)).toString();
 			}
 		} catch (Exception e) {
-			return e.toString();
+			return e.getMessage();
 
 		}
 		return "Erro de tipos!";

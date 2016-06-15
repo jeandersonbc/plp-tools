@@ -5,7 +5,6 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.StringTokenizer;
 
-import br.ufpe.cin.plp.web.languages.GenericParseException;
 import br.ufpe.cin.plp.web.languages.Interpreter;
 import loo1.plp.orientadaObjetos1.Programa;
 import loo1.plp.orientadaObjetos1.expressao.valor.ValorBooleano;
@@ -16,12 +15,15 @@ import loo1.plp.orientadaObjetos1.memoria.colecao.ListaValor;
 import loo1.plp.orientadaObjetos1.parser.OO1Parser;
 import loo1.plp.orientadaObjetos1.parser.ParseException;
 
+/**
+ * Um Wrapper para a linguagem OO1.
+ */
 public class WrapperOo1 implements Interpreter {
 
 	private OO1Parser oo1Parser;
 
 	@Override
-	public String run(String source, String input) throws GenericParseException {
+	public String run(String source, String input) {
 		ByteArrayInputStream fis = new ByteArrayInputStream(source.getBytes());
 		Programa prog;
 		if (oo1Parser == null) {
@@ -32,7 +34,7 @@ public class WrapperOo1 implements Interpreter {
 		try {
 			prog = oo1Parser.processaEntrada();
 		} catch (ParseException e1) {
-			throw new GenericParseException();
+			return e1.getLocalizedMessage();
 		}
 
 		ListaValor entrada = obterListaEntradaOO1(input);
@@ -41,10 +43,9 @@ public class WrapperOo1 implements Interpreter {
 				return prog.executar(new loo1.plp.orientadaObjetos1.memoria.ContextoExecucaoOO1(entrada)).toString();
 			}
 		} catch (Exception e) {
-			return e.toString();
+			return e.getMessage();
 
 		}
-
 		return "Erro de tipos!";
 
 	}
