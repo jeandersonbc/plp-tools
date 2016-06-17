@@ -29,32 +29,21 @@ function showStdin() {
 }
 
 function getLinguagem(sel) {
-	if ($('#lang-selector').val() == 'exp1') {
-		setLanguage("text/exp1");
-	}
-	if ($('#lang-selector').val() == 'exp2') {
-		setLanguage("text/exp2");
-	}
-	if ($('#lang-selector').val() == 'func1') {
-		setLanguage("text/func1");
-	}
-	if ($('#lang-selector').val() == 'func2') {
-		setLanguage("text/func2");
-	}
-	if ($('#lang-selector').val() == 'func3') {
-		setLanguage("text/func3");
-	}
-	if ($('#lang-selector').val() == 'imp1') {
-		setLanguage("text/imp1");
-	}
-	if ($('#lang-selector').val() == 'imp2') {
-		setLanguage("text/imp2");
-	}
-	if ($('#lang-selector').val() == 'oo1') {
-		setLanguage("text/oo1");
-	}
-	if ($('#lang-selector').val() == 'oo2') {
-		setLanguage("text/oo2");
+	var linguagens = {
+		'exp1': "text/exp1",
+		'exp2': "text/exp2",
+		'func1': "text/func1",
+		'func2': "text/func2",
+		'func3': "text/func3",
+		'imp1': "text/imp1",
+		'imp2': "text/imp2",
+		'oo1': "text/oo1",
+		'oo2': "text/oo2"
+	};
+	var linguagem = linguagens[$('#lang-selector').val()];
+
+	if (linguagem) {
+		setLanguage(linguagem);
 	}
 }
 
