@@ -19,7 +19,7 @@ function execute() {
 }
 
 function limpar() {
-	$("#stdout").children().remove();
+	$("#stdout-list").children().remove();
 	$("#stdin-input").val("");
 	editor.setValue("");
 }
