@@ -34,7 +34,7 @@
 	<div class="row">
 		<div class="col-md-12">
 			<label for="lang-selector">Selecione uma linguagem</label>
-			<select onchange="getLinguagem(this)" id="lang-selector">
+			<select id="lang-selector">
 				<optgroup label="Linguagens de Expressões">
 					<option value="exp1">Expressões 1</option>
 					<option value="exp2">Expressões 2</option>
@@ -66,13 +66,13 @@
 				<div id="stdin" style="display: none;">
 					<input type="text" placeholder="Entrada padrão" id="stdin-input"/>
 				</div>
-				<button onclick="execute()" type="button" class="btn btn-success">
+				<button id="executar-btn" type="button" class="btn btn-success">
 					Executar <span class="glyphicon glyphicon-cog"></span>
 				</button>
-				<button onclick="showStdin()" type="button" class="btn btn-primary">
+				<button id="mostrar-btn" type="button" class="btn btn-primary">
 					Entrada Padrão <span class="glyphicon glyphicon-inbox"></span>
 				</button>
-				<button onclick="limpar()" type="button" class="btn btn-primary">
+				<button id="limpar-btn" type="button" class="btn btn-primary">
 					Limpar <span class="glyphicon glyphicon-trash"></span>
 				</button>
 			</div>
@@ -92,17 +92,7 @@
 <script src="../static/js/codemirror/codemirror.js" th:src="@{/js/codemirror/codemirror.js}"></script>
 <script src="../static/js/codemirror/anyword-hint.js" th:src="@{/js/codemirror/anyword-hint.js}"></script>
 <script src="../static/js/codemirror/show-hint.js" th:src="@{/js/codemirror/show-hint.js}"></script>
-<script src="../static/js/home.js" th:src="@{/js/home.js}"></script>
 <script src="../static/js/codemirror/plp-language.js" th:src="@{/js/codemirror/plp-language.js}"></script>
-<script>
-	var editor = CodeMirror.fromTextArea(document
-			.getElementById("code"), {
-		lineNumbers: true,
-        matchBrackets: true,
-        mode: "text/exp1",
-        extraKeys: {"Ctrl-Space": "autocomplete"}
-	});
-</script>
-
+<script src="../static/js/home.js" th:src="@{/js/home.js}"></script>
 </body>
 </html>
