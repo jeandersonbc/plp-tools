@@ -53,7 +53,6 @@
 	$("#lang-selector").change(function() {
 		var lingSelectionada = linguagens[$('#lang-selector').val()];
 		if (lingSelectionada) {
-			var editor = $('.CodeMirror')[0].CodeMirror;
 			editor.setOption("mode", lingSelectionada);
 			editor.setOption({"Ctrl-Space": "autocomplete"});
 		}
